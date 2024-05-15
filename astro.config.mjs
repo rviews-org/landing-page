@@ -4,6 +4,6 @@ import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://rviews-org.github.io/",
+  site: "https://rviews.github.io/",
   integrations: [tailwind(), icon()],
 });
