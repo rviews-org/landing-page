@@ -11,6 +11,13 @@ export interface FeatureItem {
   style?: string;
 }
 
+export interface TeamMember {
+  description: string;
+  photo: string;
+  name: string;
+  quote?: string;
+}
+
 export interface FooterLink {
   description: string;
   icon: string;

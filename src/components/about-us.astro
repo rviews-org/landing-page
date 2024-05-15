@@ -1,0 +1,62 @@
+---
+import { Icon } from "astro-icon/components";
+import ContentSection from "~/components/content-section.astro";
+import type { TeamMember } from "~/types";
+import { Image } from "astro:assets";
+
+const features: Array<TeamMember> = [
+    {
+        name: "Carlos Díaz",
+        description: "CEO",
+        photo: "/src/content/us/_images/carlos.jpg",
+    },
+    {
+        name: "Guillermo Pérez",
+        description: "Security expert",
+        photo: "/src/content/us/_images/guillermo.jpg",
+    },
+    {
+        name: "Izan García",
+        description: "CTO",
+        photo: "/src/content/us/_images/izan.jpg",
+    },
+    {
+        name: "Jianeng Huang",
+        description: "Infrastructure specialist",
+        photo: "/src/content/us/_images/jianeng.jpg",
+    },
+    {
+        name: "Liwei Hu",
+        description: "Full stack",
+        photo: "/src/content/us/_images/liwei.jpg",
+    },
+];
+---
+
+<ContentSection title="Our Team" id="us">
+    <Fragment slot="lead">
+        We are a team of <span class="text-primary">brilliant</span> and 
+        <span class="text-primary">experienced</span> engineers, dedicated to 
+        delivering <span class="text-primary">innovative solutions</span>.
+    </Fragment>
+
+    <ul class="grid max-w-3xl grid-cols-1 md:max-w-4xl md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+        features.map(({ name, description, photo, quote="" }) => (
+            <li class="flex flex-col items-center gap-4 border border-default bg-offset p-6">
+                <div class="size-32 rounded-full border-2 border-current p-1">
+                    <Image
+                        class="rounded-full h-full w-full bg-cover object-cover transition-all duration-300 group-hover:scale-110 group-hover:opacity-20 group-focus:scale-110 group-focus:opacity-20"
+                        src={photo}
+                        height={320}
+                        width={320}
+                        alt={`A picture of ${name}`}
+                    /> 
+                </div>
+                <p class="text-center font-extrabold text-xl">{name}</p>
+                <p class="text-center text-offset text-sm">{description}</p>
+            </li>
+        ))
+        }
+    </ul>
+</ContentSection>
