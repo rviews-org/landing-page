@@ -3,32 +3,101 @@ import { Icon } from "astro-icon/components";
 import ContentSection from "~/components/content-section.astro";
 import type { TeamMember } from "~/types";
 import { Image } from "astro:assets";
+import type { FooterLink } from "~/types";
+
+const links: Array<FooterLink> = [
+  {
+    url: "https://twitter.com/astrodotbuild",
+    description: "Astro on Twitter",
+    icon: "fa-brands:twitter",
+  },
+];
 
 const features: Array<TeamMember> = [
     {
         name: "Carlos Díaz",
         description: "CEO",
-        photo: "/src/content/us/_images/carlos.jpg",
+        photo: "/src/content/us/_images/carlos.jpeg",
+        socials: [
+            {
+                url: "https://www.linkedin.com/in/carlos-diaz-abad/",
+                description: "Linkedin",
+                icon: "fa-brands:linkedin",
+            },
+            {
+                url: "https://github.com/caarlosdiaz",
+                description: "GitHub",
+                icon: "fa-brands:github",
+            }
+        ],
     },
     {
         name: "Guillermo Pérez",
         description: "Security expert",
-        photo: "/src/content/us/_images/guillermo.jpg",
+        photo: "/src/content/us/_images/guillermo.jpeg",
+        socials: [
+            {
+                url: "https://www.linkedin.com/in/guillermo-p%C3%A9rez-fern%C3%A1ndez/",
+                description: "Linkedin",
+                icon: "fa-brands:linkedin",
+            },
+            {
+                url: "https://github.com/GuilleMurdoc",
+                description: "GitHub",
+                icon: "fa-brands:github",
+            }
+        ],
     },
     {
         name: "Izan García",
         description: "CTO",
-        photo: "/src/content/us/_images/izan.jpg",
+        photo: "/src/content/us/_images/izan.jpeg",
+        socials: [
+            {
+                url: "https://www.linkedin.com/in/izan-garcia/",
+                description: "Linkedin",
+                icon: "fa-brands:linkedin",
+            },
+            {
+                url: "https://www.linkedin.com/in/izan-garcia/",
+                description: "GitHub",
+                icon: "fa-brands:github",
+            }
+        ],
     },
     {
         name: "Jianeng Huang",
         description: "Infrastructure specialist",
-        photo: "/src/content/us/_images/jianeng.jpg",
+        photo: "/src/content/us/_images/jianeng.jpeg",
+        socials: [
+            {
+                url: "https://www.linkedin.com/in/jianenghuang/",
+                description: "Linkedin",
+                icon: "fa-brands:linkedin",
+            },
+            {
+                url: "https://github.com/jianenghuang",
+                description: "GitHub",
+                icon: "fa-brands:github",
+            }
+        ],
     },
     {
         name: "Liwei Hu",
         description: "Full stack",
-        photo: "/src/content/us/_images/liwei.jpg",
+        photo: "/src/content/us/_images/liwei.jpeg",
+        socials: [
+            {
+                url: "https://www.linkedin.com/in/liweihuzeng/",
+                description: "Linkedin",
+                icon: "fa-brands:linkedin",
+            },
+            {
+                url: "https://github.com/LiweiHZ",
+                description: "GitHub",
+                icon: "fa-brands:github",
+            }
+        ],
     },
 ];
 ---
@@ -42,7 +111,7 @@ const features: Array<TeamMember> = [
 
     <ul class="grid max-w-3xl grid-cols-1 md:max-w-4xl md:grid-cols-2 lg:grid-cols-3 gap-8">
         {
-        features.map(({ name, description, photo, quote="" }) => (
+        features.map(({ name, description, photo, quote="", socials }) => (
             <li class="flex flex-col items-center gap-4 border border-default bg-offset p-6">
                 <div class="size-32 rounded-full border-2 border-current p-1">
                     <Image
@@ -56,6 +125,21 @@ const features: Array<TeamMember> = [
                 <p class="text-center font-extrabold text-xl">{name}</p>
                 <p class="text-center text-offset text-md">{description}</p>
                 <p class="text-center text-offset text-sm italic">{quote}</p>
+                <ul class="grid grid-flow-col auto-cols-max gap-8">
+                    {
+                        socials.map((link) => (
+                            <li>
+                                <a
+                                    class="flex size-16 items-center justify-center rounded-full border-2 border-current p-4"
+                                    href={link.url}
+                                >
+                                    <span class="sr-only">{link.description}</span>
+                                    <Icon class="size-full" name={link.icon} />
+                                </a>
+                            </li>
+                        ))
+                    }
+                </ul>
             </li>
         ))
         }
