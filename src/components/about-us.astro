@@ -4,6 +4,11 @@ import ContentSection from "~/components/content-section.astro";
 import type { TeamMember } from "~/types";
 import { Image } from "astro:assets";
 import type { FooterLink } from "~/types";
+import carlosPhoto from "/src/content/us/_images/carlos.jpeg";
+import guillermoPhoto from "/src/content/us/_images/guillermo.jpeg";
+import izanPhoto from "/src/content/us/_images/izan.jpeg";
+import jianengPhoto from "/src/content/us/_images/jianeng.jpeg";
+import liweiPhoto from "/src/content/us/_images/liwei.jpeg";
 
 const links: Array<FooterLink> = [
   {
@@ -17,7 +22,7 @@ const features: Array<TeamMember> = [
     {
         name: "Carlos Díaz",
         description: "CEO",
-        photo: "/src/content/us/_images/carlos.jpeg",
+        photo: carlosPhoto,
         socials: [
             {
                 url: "https://www.linkedin.com/in/carlos-diaz-abad/",
@@ -34,7 +39,7 @@ const features: Array<TeamMember> = [
     {
         name: "Guillermo Pérez",
         description: "Security expert",
-        photo: "/src/content/us/_images/guillermo.jpeg",
+        photo: guillermoPhoto,
         socials: [
             {
                 url: "https://www.linkedin.com/in/guillermo-p%C3%A9rez-fern%C3%A1ndez/",
@@ -51,7 +56,7 @@ const features: Array<TeamMember> = [
     {
         name: "Izan García",
         description: "CTO",
-        photo: "/src/content/us/_images/izan.jpeg",
+        photo: izanPhoto,
         socials: [
             {
                 url: "https://www.linkedin.com/in/izan-garcia/",
@@ -68,7 +73,7 @@ const features: Array<TeamMember> = [
     {
         name: "Jianeng Huang",
         description: "Infrastructure specialist",
-        photo: "/src/content/us/_images/jianeng.jpeg",
+        photo: jianengPhoto,
         socials: [
             {
                 url: "https://www.linkedin.com/in/jianenghuang/",
@@ -85,7 +90,7 @@ const features: Array<TeamMember> = [
     {
         name: "Liwei Hu",
         description: "Full stack",
-        photo: "/src/content/us/_images/liwei.jpeg",
+        photo: liweiPhoto,
         socials: [
             {
                 url: "https://www.linkedin.com/in/liweihuzeng/",
